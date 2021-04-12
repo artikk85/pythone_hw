@@ -1,7 +1,15 @@
-def my_func(*args):
-    words = (my_func())
-    print(words.title())
+# def my_func(*args):
+#     words = input('введите текст: ')
+#     print(words.title())
+# my_func()
 
-my_func(
-    input('введите слова через пробел: ')
-)
+def int_func(*args):
+    latin = 'qwertyuiopasdfghjklzxcvbnm '
+    while True:
+        words = input('введите текст латинскими буквами: ')
+        for el in words:
+            if el not in latin:
+                print('текст нужно ввести латинскими буквами!')
+                break
+        else:print(words.title())
+int_func()
