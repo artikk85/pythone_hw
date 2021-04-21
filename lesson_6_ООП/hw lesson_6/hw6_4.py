@@ -19,27 +19,35 @@ class Car:
         self.is_police = is_police
 
     def go(self):
-        print('машина приехала')
+        print(f"{self.name}:'машина приехала'")
 
     def stop(self):
-        print('машина остановилась')
+        print(f"{self.name}:'машина остановилась'")
 
-    def turn(self):
-        print('машина повернула')
+    def turn(self, direction):
+        print(f"{self.name}: машина повернула {'налево' if direction == 0 else 'направо'}")
 
 class WorkCar(Car):
     def show_speed(self):
         if self.speed > 40:
-            print(f'вы превысили скорость, скорость автомобиля: {self.speed}' )
+            print(f"{self.name}:'вы превысили скорость, скорость автомобиля: {self.speed}" )
         else:
-            print(f'скорость автомобиля: {self.speed}')
+            print(f'скорость автомобиля {self.name}: {self.speed}')
 
 class TownCar(Car):
     def show_speed(self):
         if self.speed > 60:
-            print(f'вы превысили скорость, скорость автомобиля: {self.speed}' )
+            print(f"{self.name}:'вы превысили скорость, скорость автомобиля: {self.speed}" )
         else:
-            print(f'скорость автомобиля: {self.speed}')
+            print(f'скорость автомобиля {self.name}: {self.speed}')
+
+class SportCar(Car):
+    pass
+
+class PoliceCar(Car):
+    def __init__(self, speed, color, name, is_police = True):
+        super.__init__(self, speed, color, name, is_police)
+        #Car.__init__(self, speed, color, name, is_police)
 
 kamaz = WorkCar(50, 'red', 'Kamaz', False)
 print(kamaz.speed, kamaz.name, kamaz.color, kamaz.is_police)
