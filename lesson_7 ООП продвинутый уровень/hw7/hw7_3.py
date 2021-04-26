@@ -44,7 +44,11 @@ class Cell:
         return Cell(self.list * other.list)
 
     def __truediv__(self, other):
-        return Cell(self.list // other.list)
+        try:
+            if other.list != 0:
+                return Cell(self.list // other.list)
+        except:
+            print('расчет не возможен')
 
     def make_order(self, cell_in_row):
         return '\n'.join(['*' * cell_in_row for _ in range(self // cell_in_row)]) + '\n' + '*' * (self % cell_in_row)
